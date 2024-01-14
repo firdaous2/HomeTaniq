@@ -35,7 +35,7 @@ function Homepage() {
       <Hero>
         <HeroImage src={heroImg} alt="" />
         <HeroText>
-          <Navbar></Navbar>
+          <Navbar />
         </HeroText>
       </Hero>
     </HomepageContainer>
