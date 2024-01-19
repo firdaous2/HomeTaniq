@@ -3,6 +3,10 @@ import Topbar from '../components/topbar';
 import styled from 'styled-components';
 import heroImg from '../assets/heroImg.png';
 import arrow from '../assets/arrow.svg';
+import chair from '../assets/chair.svg';
+import cart from '../assets/cart.svg';
+import search from '../assets/search.svg';
+import pencil from '../assets/pencil.svg';
 import Navbar from '../components/navbar';
 
 const HomepageContainer = styled.div`
@@ -52,6 +56,13 @@ margin-bottom: 150px;
     
   }
 `;
+const Welcome = styled.div`
+width: 100%;
+background-color: red;
+ div{
+  justify-content: space-evenly;
+ }
+`
 
 function Homepage() {
   return (
@@ -65,10 +76,29 @@ function Homepage() {
             <p className='display-5'>Elevate Everyday</p>
             <p className=''>AT HOMETANIQ, EVERY MOMENT MATTERS!</p>
             <button type="button" class="btn btn-light d-flex gap-3">Explore Now
-            <img src={arrow} alt="" className='mt-2'/></button>
+              <img src={arrow} alt="" className='mt-2' /></button>
           </Explore>
         </HeroText>
       </Hero>
+      <Welcome className='container '>
+        <div className="col-md-12 col-sm-4 d-flex">
+          <div className="d-flex"><img src={chair} alt="" /> 
+            <p>DISCOVER COLLECTIONS</p>
+          </div>
+          <div className="d-flex">
+            <img src={cart} alt="" />
+            <p>DISCOVER COLLECTIONS</p>
+            </div>
+          <div className="d-flex">
+            <img src={search} alt="" />
+            <p>DISCOVER COLLECTIONS</p>
+            </div>
+          <div className="d-flex">
+            <img src={pencil} alt="" />
+            <p>DISCOVER COLLECTIONS</p>
+            </div>
+        </div>
+      </Welcome>
     </HomepageContainer>
   );
 }
