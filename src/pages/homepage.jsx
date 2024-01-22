@@ -7,6 +7,7 @@ import chair from '../assets/chair.svg';
 import cart from '../assets/cart.svg';
 import search from '../assets/search.svg';
 import pencil from '../assets/pencil.svg';
+import art from '../assets/art.svg';
 import Navbar from '../components/navbar';
 
 const HomepageContainer = styled.div`
@@ -21,7 +22,7 @@ const Hero = styled.div`
 
 const HeroImage = styled.img`
   width: 100%;
-  height: 93dvh;
+  height: 93vh;
   display: block;
   position: relative;
   z-index: 1;
@@ -41,28 +42,65 @@ const HeroText = styled.div`
 `;
 
 const Explore = styled.div`
-margin-bottom: 150px;
+  margin-bottom: 150px;
   position: absolute;
   bottom: 0;
   transform: translate(50%, 0%);
-  p:nth-child(2){
+  p:nth-child(2) {
     font-size: 15px;
-  transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
   }
-  button{
+  button {
     padding: 12px 30px;
     border-radius: 35px;
-  transform: translate(0%, -30%);
-    
+    transform: translate(0%, -30%);
   }
 `;
+
 const Welcome = styled.div`
-width: 100%;
-background-color: red;
- div{
-  justify-content: space-evenly;
- }
-`
+  width: 100%;
+  margin-top: 25px;
+  div:nth-child(1) {
+    justify-content: space-evenly;
+    div {
+      p {
+        letter-spacing: -1px;
+        font-size: 16px;
+      }
+    }
+    div {
+      width: 100%;
+      display: flex;
+    }
+  }
+`;
+
+const Art = styled.div`
+  margin-top: 70px;
+  display: flex;
+  // background-color: red;
+
+  div {
+    font-size: 25px;
+    // background-color: blue;
+
+
+  }
+
+  div:nth-child(1) {
+    margin-top: 30px;
+    }
+
+  div:nth-child(2) {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    img{
+      height: 55dvh;
+      width: 100%;
+    }
+  }
+`;
 
 function Homepage() {
   return (
@@ -75,29 +113,46 @@ function Homepage() {
           <Explore className='mb-5'>
             <p className='display-5'>Elevate Everyday</p>
             <p className=''>AT HOMETANIQ, EVERY MOMENT MATTERS!</p>
-            <button type="button" class="btn btn-light d-flex gap-3">Explore Now
-              <img src={arrow} alt="" className='mt-2' /></button>
+            <button type="button" className="btn btn-light d-flex gap-3">
+              Explore Now
+              <img src={arrow} alt="" className='mt-2' />
+            </button>
           </Explore>
         </HeroText>
       </Hero>
-      <Welcome className='container '>
+      <Welcome className='container-fluid' id='icons'>
         <div className="col-md-12 col-sm-4 d-flex">
-          <div className="d-flex"><img src={chair} alt="" /> 
-            <p>DISCOVER COLLECTIONS</p>
+          <div className="d-flex gap-2">
+            <img src={chair} alt="" />
+            <p className='mt-3'>DISCOVER COLLECTIONS</p>
           </div>
-          <div className="d-flex">
+          <div className="d-flex gap-2">
             <img src={cart} alt="" />
-            <p>DISCOVER COLLECTIONS</p>
-            </div>
-          <div className="d-flex">
+            <p className='mt-3'>SHOP AT TOKYO OUTLET</p>
+          </div>
+          <div className="d-flex gap-2">
             <img src={search} alt="" />
-            <p>DISCOVER COLLECTIONS</p>
-            </div>
-          <div className="d-flex">
+            <p className='mt-3'>SEARCH BY BRAND</p>
+          </div>
+          <div className="d-flex gap-2">
             <img src={pencil} alt="" />
-            <p>DISCOVER COLLECTIONS</p>
-            </div>
+            <p className='mt-3'>CONSULT FOR INTERIOR</p>
+          </div>
         </div>
+
+        <Art className='d-flex'>
+          <div className="col-lg-6 col-md-12 col-sm-12">
+            <div>
+              Welcome to HOMETANIQ, where design and furnishings intertwine
+            </div>
+            <div className="mt-3">
+              Since 1945, we've been your partner in shaping homes. Thank you for entrusting us with your vision.
+            </div>
+          </div>
+          <div className="col-lg-6 col-md-12 col-sm-12">
+            <img src={art} alt="" />
+          </div>
+        </Art>
       </Welcome>
     </HomepageContainer>
   );
