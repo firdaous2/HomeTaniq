@@ -101,6 +101,9 @@ const Art = styled.div`
     }
   }
 `;
+const Showcase= styled.div`
+
+`
 
 function Homepage() {
   return (
@@ -154,6 +157,9 @@ function Homepage() {
           </div>
         </Art>
       </Welcome>
+      <Showcase>
+
+      </Showcase>
     </HomepageContainer>
   );
 }
