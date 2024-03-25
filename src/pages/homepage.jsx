@@ -8,6 +8,8 @@ import cart from '../assets/cart.svg';
 import search from '../assets/search.svg';
 import pencil from '../assets/pencil.svg';
 import art from '../assets/art.svg';
+import frame1 from '../assets/restaurant frame.svg';
+import frame2 from '../assets/walkby.svg';
 import Navbar from '../components/navbar';
 
 const HomepageContainer = styled.div`
@@ -92,18 +94,44 @@ const Art = styled.div`
     }
 
   div:nth-child(2) {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
+    // width: 50%;
+    // display: flex;
+    // justify-content: flex-end;
+    // display: flex;
+      // align-item: flex-end;
     img{
       height: 55dvh;
       width: 100%;
+      // background-color: pink;
     }
   }
 `;
-const Showcase= styled.div`
-
+const Showcase = styled.div`
 `
+
+const Digital = styled.div`
+  background-color: #F6F6F0;
+  padding: 20px;
+  .header{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+  }
+  .dig-images{
+    width: 90%;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    gap: 3px;
+    // background-color: red;
+    // height: 50dvh;
+    // justify-content: space-around;
+    img{
+      width: 50%;
+      height: 80dvh;
+    }
+  }
+  `
 
 function Homepage() {
   return (
@@ -158,8 +186,17 @@ function Homepage() {
         </Art>
       </Welcome>
       <Showcase>
-
       </Showcase>
+
+
+      <Digital>
+        <div className='header'>Unifying physicality, digital space for ideal synergy.</div>
+        <div className="dig-images">
+          <img src={frame1} alt="" />
+          <img src={frame2} alt="" />
+        </div>
+      </Digital>
+
     </HomepageContainer>
   );
 }
