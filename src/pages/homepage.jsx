@@ -10,7 +10,65 @@ import pencil from '../assets/pencil.svg';
 import art from '../assets/art.svg';
 import frame1 from '../assets/restaurant frame.svg';
 import frame2 from '../assets/walkby.svg';
+import triangle from '../assets/triangle.svg';
+import hotel from '../assets/hotel.svg';
+import communicate from '../assets/communicate.svg';
 import Navbar from '../components/navbar';
+
+const navLine = [
+  {
+    title: "DISCOVER COLLECTIONS",
+    image: chair
+  },
+  {
+    title: "SHOP AT TOKYO OUTLET",
+    image: cart
+  },
+  {
+    title: "SEARCH BY BRAND",
+    image: search
+  },
+  {
+    title: "CONSULT FOR INTERIOR",
+    image: pencil
+  }
+]
+
+const digitalSpace = [
+  {
+    image: frame1,
+    title: "In Tokyo: 456 Shibuya Street, Minato City, Tokyo",
+    subTitle: "DISCOVER THE SHOWROOM",
+    subImage: arrow
+  },
+  {
+    image: frame2,
+    title: "DISCOVER US",
+    subTitle: "OUR HISTORY",
+    subImage: arrow
+  },
+]
+
+const communicateSpace = [
+  {
+    image: triangle,
+    title: "We cater to every need, from a single room to complete renovations",
+    buttonTitle: "Design Expertise",
+    buttonImage: arrow
+  },
+  {
+    image: hotel,
+    title: "Revamp hotels, offices, and commercial spaces with our specialized support",
+    buttonTitle: "Professional Solutions",
+    buttonImage: arrow
+  },
+  {
+    image: communicate,
+    title: "Get personalized assistance, It is now available on WhatsApp too! Get in Touch",
+    buttonTitle: "Connect Now",
+    buttonImage: arrow
+  },
+]
 
 const HomepageContainer = styled.div`
   width: 100%;
@@ -80,35 +138,22 @@ const Welcome = styled.div`
 const Art = styled.div`
   margin-top: 70px;
   display: flex;
-  // background-color: red;
 
   div {
     font-size: 25px;
-    // background-color: blue;
-
-
   }
-
   div:nth-child(1) {
     margin-top: 30px;
     }
-
   div:nth-child(2) {
-    // width: 50%;
-    // display: flex;
-    // justify-content: flex-end;
-    // display: flex;
-      // align-item: flex-end;
     img{
       height: 55dvh;
       width: 100%;
-      // background-color: pink;
     }
   }
 `;
 const Showcase = styled.div`
 `
-
 const Digital = styled.div`
   background-color: #F6F6F0;
   padding: 20px;
@@ -123,12 +168,64 @@ const Digital = styled.div`
     margin: auto;
     margin-top: 40px;
     gap: 3px;
-    // background-color: red;
-    // height: 50dvh;
-    // justify-content: space-around;
-    img{
-      width: 50%;
+    justify-content: space-around;
+    div img{
       height: 80dvh;
+    }
+    div.cont{
+      height: 90px;
+      width: 85%;
+      margin: auto;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      transform: translateY(-50%);
+      padding: 0px 20px;
+      font-size: 16px;
+      font-weight: 400;
+      flex-direction: column;
+      gap: 8px;
+    }
+    div.next{
+      font-size: 14px;
+      gap: 10px;
+      img{
+        width: 6px;
+        height: 20px;
+      }
+    }
+  }
+  div.communicate{
+    padding: 20px 100px; 
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    div.each{
+     width: 30%;
+      >div{
+        gap: 15px;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        div.text{
+          font-size: 18px;
+        }
+        .next{
+          gap: 6px;
+          background-color: white;
+          padding: 3px 15px;
+          border-radius: 13px;
+          font-size: 14px;
+          img{
+            margin-top: 3px;
+          }
+        }
+      }
     }
   }
   `
@@ -153,22 +250,12 @@ function Homepage() {
       </Hero>
       <Welcome className='container-fluid' id='icons'>
         <div className="col-md-12 col-sm-4 d-flex">
-          <div className="d-flex gap-2">
-            <img src={chair} alt="" />
-            <p className='mt-3'>DISCOVER COLLECTIONS</p>
-          </div>
-          <div className="d-flex gap-2">
-            <img src={cart} alt="" />
-            <p className='mt-3'>SHOP AT TOKYO OUTLET</p>
-          </div>
-          <div className="d-flex gap-2">
-            <img src={search} alt="" />
-            <p className='mt-3'>SEARCH BY BRAND</p>
-          </div>
-          <div className="d-flex gap-2">
-            <img src={pencil} alt="" />
-            <p className='mt-3'>CONSULT FOR INTERIOR</p>
-          </div>
+          {navLine.map((nav, index) => (
+            <div className="d-flex gap-2" key={index}>
+              <img src={nav.image} alt="" />
+              <p className='mt-3'>{nav.title}</p>
+            </div>
+          ))}
         </div>
 
         <Art className='d-flex'>
@@ -188,12 +275,36 @@ function Homepage() {
       <Showcase>
       </Showcase>
 
-
       <Digital>
         <div className='header'>Unifying physicality, digital space for ideal synergy.</div>
         <div className="dig-images">
-          <img src={frame1} alt="" />
-          <img src={frame2} alt="" />
+          {digitalSpace.map((digital, index) => (
+            <div key={index}>
+              <img src={digital.image} alt="" />
+              <div className="cont">
+                {digital.title}
+                <div className="d-flex next">
+                  {digital.subTitle}
+                  <img src={digital.subImage} alt="" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="communicate">
+          {communicateSpace.map((commune, index)=>(
+          <div className="each">
+            <div>
+              <img src={commune.image} alt="" />
+              <div className='text'>{commune.title}</div>
+              <div className="next butn d-flex">
+                {commune.buttonTitle}
+                <img src={commune.buttonImage} alt="" />
+              </div>
+            </div>
+          </div>
+          ))}
         </div>
       </Digital>
 
