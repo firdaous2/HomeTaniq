@@ -8,4 +8,7 @@ body{
   max-width: 1800px;
   margin: auto;
 }
+/* div img:nth-child(2){
+  margin: 0;
+} */
 

@@ -10,6 +10,8 @@ import pencil from '../assets/pencil.svg';
 import art from '../assets/art.svg';
 import frame1 from '../assets/restaurant frame.svg';
 import frame2 from '../assets/walkby.svg';
+import frame3 from '../assets/frame3.svg';
+import frame4 from '../assets/frame4.svg';
 import triangle from '../assets/triangle.svg';
 import hotel from '../assets/hotel.svg';
 import communicate from '../assets/communicate.svg';
@@ -67,6 +69,22 @@ const communicateSpace = [
     title: "Get personalized assistance, It is now available on WhatsApp too! Get in Touch",
     buttonTitle: "Connect Now",
     buttonImage: arrow
+  },
+]
+const articleSpace = [
+  {
+    image: frame3,
+    title: "MODERN LIVING ROOM IN TOKYO",
+    subTitle: "GO TO ARTICLE",
+    subImage: arrow
+  },
+  {
+    image: frame4,
+    title: "CONDE HOUSE EPTOMIZES STATE-OF-THE-ART INDOOR AND OUTDOOR FURNITURE CRAFTMANSHIP",
+    subTitle: "GO TO ARTICLE",
+    subImage: arrow,
+    id: 'width',
+    id2: 'imgcont'
   },
 ]
 
@@ -230,6 +248,75 @@ const Digital = styled.div`
   }
   `
 
+  const Article = styled.div`
+  margin-top: 20px;
+  padding: 50px 0px;
+  background-color: #E5E0D8;
+  .dig-images{
+    width: 90%;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    margin-left: 10%;
+    gap: 3px;
+    justify-content: space-around;
+    div img{
+      height: 80dvh;
+    }
+    div img#width{
+      height: 60dvh;
+      margin-top: 50px;
+    }
+    div#imgcont{
+      div.cont{
+        width: 50%;
+        transform: translate(-42%, -50%);
+        font-size: 13px;
+        text-align: center;  
+      }
+      margin-left: 10%;
+    }
+    div.cont{
+      height: 90px;
+      width: 85%;
+      margin: auto;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      transform: translateY(-50%);
+      padding: 0px 20px;
+      font-size: 16px;
+      // font-weight: 400;
+      flex-direction: column;
+      gap: 8px;
+      text-align: cnter;
+    }
+    div.next{
+      font-size: 14px;
+      gap: 10px;
+      img{
+        width: 6px;
+        height: 20px;
+      }
+    }
+  }
+  div.heading{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+  } 
+  button{
+    margin: auto;
+    display: flex;
+    background: transparent;
+    padding: 8px 26px;
+    border: 1.5px solid black;
+    border-radius: 22px;
+    font-weight: 400;
+  }
+  `
+
 function Homepage() {
   return (
     <HomepageContainer>
@@ -307,7 +394,29 @@ function Homepage() {
           ))}
         </div>
       </Digital>
-
+      
+      <Article>
+        <div className="heading">
+        Metropolis Tokyo
+        </div>
+      <div className="dig-images">
+          {articleSpace.map((article, index) => (
+            <div key={index} id={article.id2}>
+              <img src={article.image} alt="" id={article.id}/>
+              <div className="cont">
+                {article.title}
+                <div className="d-flex next">
+                  {article.subTitle}
+                  <img src={article.subImage} alt="" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button>
+          READ ALL ARTICLES
+        </button>
+      </Article>
     </HomepageContainer>
   );
 }
