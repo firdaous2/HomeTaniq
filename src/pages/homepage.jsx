@@ -15,6 +15,18 @@ import frame4 from '../assets/frame4.svg';
 import triangle from '../assets/triangle.svg';
 import hotel from '../assets/hotel.svg';
 import communicate from '../assets/communicate.svg';
+import brand1 from '../assets/brand1.svg';
+import brand2 from '../assets/brand2.svg';
+import brand3 from '../assets/brand3.svg';
+import brand4 from '../assets/brand4.svg';
+import brand5 from '../assets/brand5.svg';
+import brand6 from '../assets/brand6.svg';
+import brand7 from '../assets/brand7.svg';
+import brand8 from '../assets/brand8.svg';
+import sofa from '../assets/sofa.svg';
+import pouf from '../assets/pouf.svg';
+import armChair from '../assets/armChair.svg';
+import Sofabed from '../assets/Sofabed.svg';
 import Navbar from '../components/navbar';
 
 const navLine = [
@@ -87,6 +99,9 @@ const articleSpace = [
     id2: 'imgcont'
   },
 ]
+
+const brandSpace = [brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8]
+const FoamCategory = [sofa, pouf, armChair, Sofabed]
 
 const HomepageContainer = styled.div`
   width: 100%;
@@ -248,7 +263,7 @@ const Digital = styled.div`
   }
   `
 
-  const Article = styled.div`
+const Article = styled.div`
   margin-top: 20px;
   padding: 50px 0px;
   background-color: #E5E0D8;
@@ -316,6 +331,58 @@ const Digital = styled.div`
     font-weight: 400;
   }
   `
+const Brands = styled.div`
+margin: 50px 0px;
+  div.heading {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+  }
+
+  div.indibrand {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  img {
+    height: 37px;
+    width: auto;
+  }
+  button{
+    margin: auto;
+    display: flex;
+    background: transparent;
+    padding: 8px 26px;
+    border: 1.5px solid black;
+    border-radius: 22px;
+    font-weight: 400;
+    margin-top: 40px;
+  }
+`
+
+const Shop = styled.div`
+margin: 50px 30px;
+div.heading {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 500;
+}
+div.titleHead{
+  margin-top: 35px;
+  font-size: 23px;
+}
+div.foams{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  img{
+    width: 24%;
+  }
+}
+`
 
 function Homepage() {
   return (
@@ -380,29 +447,29 @@ function Homepage() {
         </div>
 
         <div className="communicate">
-          {communicateSpace.map((commune, index)=>(
-          <div className="each">
-            <div>
-              <img src={commune.image} alt="" />
-              <div className='text'>{commune.title}</div>
-              <div className="next butn d-flex">
-                {commune.buttonTitle}
-                <img src={commune.buttonImage} alt="" />
+          {communicateSpace.map((commune, index) => (
+            <div className="each" key={index}>
+              <div>
+                <img src={commune.image} alt="" />
+                <div className='text'>{commune.title}</div>
+                <div className="next butn d-flex">
+                  {commune.buttonTitle}
+                  <img src={commune.buttonImage} alt="" />
+                </div>
               </div>
             </div>
-          </div>
           ))}
         </div>
       </Digital>
-      
+
       <Article>
         <div className="heading">
-        Metropolis Tokyo
+          Metropolis Tokyo
         </div>
-      <div className="dig-images">
+        <div className="dig-images">
           {articleSpace.map((article, index) => (
             <div key={index} id={article.id2}>
-              <img src={article.image} alt="" id={article.id}/>
+              <img src={article.image} alt="" id={article.id} />
               <div className="cont">
                 {article.title}
                 <div className="d-flex next">
@@ -417,6 +484,34 @@ function Homepage() {
           READ ALL ARTICLES
         </button>
       </Article>
+
+      <Brands>
+        <div className="heading">
+          Our top brands
+        </div>
+        <div className="indibrand" style={{ justifyContent: 'center' }}>
+          {brandSpace.map((brand, index) => (
+            <img src={brand} alt={`Brand ${index}`} key={index} />
+          ))}
+        </div>
+        <button>
+          SEE ALL
+        </button>
+      </Brands>
+
+      <Shop>
+        <div className="heading">
+          Our Online Shop
+        </div>
+        <div className="titleHead">
+          Browse by your categories
+        </div>
+        <div className="foams">
+        {FoamCategory.map((foam, index) => (
+            <img src={foam} alt={`Foam ${index}`} key={index} />
+          ))}
+        </div>
+      </Shop>
     </HomepageContainer>
   );
 }
