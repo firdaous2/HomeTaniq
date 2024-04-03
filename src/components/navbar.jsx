@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import dropdown from '../assets/dropdown.svg'
@@ -8,9 +8,9 @@ import profileIcon from '../assets/profileIcon.svg'
 function Navbar() {
   const Nav = styled.div`
   width: 100%;
-  .bg-dark{
-    background-color: transparent !important;
-  }
+  // .bg-dark{
+  //   background-color: transparent !important;
+  // }
   .navbar-toggler{
     border: none;
   }
@@ -42,9 +42,28 @@ function Navbar() {
    
   }
   `
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offSet = window.scrollY
+      if (offSet > 50) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return()=>{
+      window.removeEventListener('scroll', handleScroll)
+    }
+
+  }, [])
   return (
     <Nav>
-      <nav className="navbar navbar-dark bg-dark fixed-top mt-5">
+      <nav className="navbar fixed-top mt-5"  style={{backgroundColor: scrolled?'black':'transparent', marginTop: scrolled?'90%':'0%'}}>
         <div className="container-fluid">
           <a className="navbar-brand" href="#"><img src={logo} alt="" /></a>
           <div className="centerIcon">
