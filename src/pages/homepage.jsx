@@ -1,6 +1,8 @@
 import React from 'react';
-import Topbar from '../components/topbar';
 import styled from 'styled-components';
+import Topbar from '../components/topbar';
+import Navbar from '../components/navbar';
+
 import heroImg from '../assets/heroImg.png';
 import arrow from '../assets/arrow.svg';
 import chair from '../assets/chair.svg';
@@ -27,7 +29,6 @@ import sofa from '../assets/sofa.svg';
 import pouf from '../assets/pouf.svg';
 import armChair from '../assets/armChair.svg';
 import Sofabed from '../assets/Sofabed.svg';
-import Navbar from '../components/navbar';
 
 const navLine = [
   {
@@ -46,7 +47,7 @@ const navLine = [
     title: "CONSULT FOR INTERIOR",
     image: pencil
   }
-]
+];
 
 const digitalSpace = [
   {
@@ -61,7 +62,7 @@ const digitalSpace = [
     subTitle: "OUR HISTORY",
     subImage: arrow
   },
-]
+];
 
 const communicateSpace = [
   {
@@ -82,7 +83,8 @@ const communicateSpace = [
     buttonTitle: "Connect Now",
     buttonImage: arrow
   },
-]
+];
+
 const articleSpace = [
   {
     image: frame3,
@@ -98,10 +100,40 @@ const articleSpace = [
     id: 'width',
     id2: 'imgcont'
   },
-]
+];
 
-const brandSpace = [brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8]
-const FoamCategory = [sofa, pouf, armChair, Sofabed]
+const brandSpace = [brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8];
+const FoamCategory = [sofa, pouf, armChair, Sofabed];
+
+const carousel = [
+  {
+    image: sofa,
+    title: "card title 2",
+    type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button:"Go somewhere"
+  },
+  {
+    image: sofa,
+    title: "card title 2",
+    type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button:"Go somewhere",
+    className: "inactive"
+  },
+  {
+    image: sofa,
+    title: "card title 2",
+    type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button:"Go somewhere",
+    className: "inactive"
+  },
+  {
+    image: sofa,
+    title: "card title 2",
+    type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    button:"Go somewhere",
+    className: "inactive"
+  },
+]
 
 const HomepageContainer = styled.div`
   width: 100%;
@@ -177,7 +209,7 @@ const Art = styled.div`
   }
   div:nth-child(1) {
     margin-top: 30px;
-    }
+  }
   div:nth-child(2) {
     img{
       height: 55dvh;
@@ -185,8 +217,10 @@ const Art = styled.div`
     }
   }
 `;
+
 const Showcase = styled.div`
-`
+`;
+
 const Digital = styled.div`
   background-color: #F6F6F0;
   padding: 20px;
@@ -235,7 +269,7 @@ const Digital = styled.div`
     justify-content: space-between;
     width: 100%;
     div.each{
-     width: 30%;
+      width: 30%;
       >div{
         gap: 15px;
         padding: 10px;
@@ -261,7 +295,7 @@ const Digital = styled.div`
       }
     }
   }
-  `
+`;
 
 const Article = styled.div`
   margin-top: 20px;
@@ -305,7 +339,7 @@ const Article = styled.div`
       // font-weight: 400;
       flex-direction: column;
       gap: 8px;
-      text-align: cnter;
+      text-align: center;
     }
     div.next{
       font-size: 14px;
@@ -330,9 +364,10 @@ const Article = styled.div`
     border-radius: 22px;
     font-weight: 400;
   }
-  `
+`;
+
 const Brands = styled.div`
-margin: 50px 0px;
+  margin: 50px 0px;
   div.heading {
     text-align: center;
     font-size: 35px;
@@ -361,28 +396,36 @@ margin: 50px 0px;
     font-weight: 400;
     margin-top: 40px;
   }
-`
+`;
 
 const Shop = styled.div`
-margin: 50px 30px;
-div.heading {
-  text-align: center;
-  font-size: 35px;
-  font-weight: 500;
-}
-div.titleHead{
-  margin-top: 35px;
-  font-size: 23px;
-}
-div.foams{
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  img{
-    width: 24%;
+  margin: 50px 30px;
+  div.heading {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
   }
-}
-`
+  div.titleHead{
+    margin-top: 35px;
+    font-size: 23px;
+  }
+  div.foams{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    img{
+      width: 24%;
+    }
+  }
+`;
+
+const Product = styled.div`
+  margin: 50px 30px;
+  div.titleHead{
+    margin-top: 35px;
+    font-size: 23px;
+  }
+`;
 
 function Homepage() {
   return (
@@ -507,11 +550,74 @@ function Homepage() {
           Browse by your categories
         </div>
         <div className="foams">
-        {FoamCategory.map((foam, index) => (
+          {FoamCategory.map((foam, index) => (
             <img src={foam} alt={`Foam ${index}`} key={index} />
           ))}
         </div>
       </Shop>
+      <Product>
+        <div className="titleHead">
+          Browse by your categories
+        </div>
+        <div id="carouselExampleControls" className="carousel slide" data-bs-ride= "carousel">
+          <div className="carousel-inner">
+
+            {carousel.map((caro, index)=>(
+            <div className="carousel-item active {inactive}"  key={index}>
+              <div class="card">
+                <img src={caro.image} class="d-block w-100" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">{caro.title}</h5>
+                  <p class="card-text">{caro.type}</p>
+                  <a href="#" class="btn btn-primary">{caro.button}</a>
+                </div>
+              </div>
+            </div>
+            ))}
+            {/* <div className="carousel-item">
+              <div class="card">
+                <img src={armChair} class="d-block w-100" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Card title 2</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div> */}
+            {/* <div className="carousel-item">
+              <div class="card">
+                <img src={Sofabed} class="d-block w-100" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Card title 2</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div> */}
+            {/* <div className="carousel-item">
+              <div class="card">
+                <img src={Sofabed} class="d-block w-100" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Card title 2</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div> */}
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+      </Product>
     </HomepageContainer>
   );
 }

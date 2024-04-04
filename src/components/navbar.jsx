@@ -5,43 +5,43 @@ import dropdown from '../assets/dropdown.svg'
 import searchIcon from '../assets/searchIcon.svg'
 import profileIcon from '../assets/profileIcon.svg'
 
-function Navbar() {
-  const Nav = styled.div`
-  width: 100%;
-  // .bg-dark{
-  //   background-color: transparent !important;
-  // }
-  .navbar-toggler{
-    border: none;
+const Nav = styled.div`
+width: 100%;
+// .bg-dark{
+//   background-color: transparent !important;
+// }
+.navbar-toggler{
+  border: none;
+}
+.centerIcon{
+  gap: 20px;
+    display: flex;
+  a{
+    text-decoration: none;
+    color: white; 
+    
   }
-  .centerIcon{
-    gap: 20px;
-      display: flex;
-    a{
-      text-decoration: none;
-      color: white; 
-      
-    }
-  }
-  div.navIcon{
-    div{
-      div.cart{
-        border: 1px solid white;
-        padding: 5px 15px;
-        border-radius: 20px;
-        span{
-          background-color: white;
-          color: black;
-          border-radius: 100%;
-          padding: 0px 10px;
-          
-        }
+}
+div.navIcon{
+  div{
+    div.cart{
+      border: 1px solid white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      span{
+        background-color: white;
+        color: black;
+        border-radius: 100%;
+        padding: 0px 10px;
+        
       }
     }
   }
-   
-  }
-  `
+}
+ 
+}
+`
+function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
