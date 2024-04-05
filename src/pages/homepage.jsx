@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import styled from 'styled-components';
 import Topbar from '../components/topbar';
 import Navbar from '../components/navbar';
@@ -105,35 +107,32 @@ const articleSpace = [
 const brandSpace = [brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8];
 const FoamCategory = [sofa, pouf, armChair, Sofabed];
 
-const carousel = [
+const carouselItems = [
   {
     image: sofa,
-    title: "card title 2",
+    title: "Card title 1",
     type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    button:"Go somewhere"
+    button: "Go somewhere"
   },
   {
-    image: sofa,
-    title: "card title 2",
+    image: armChair,
+    title: "Card title 2",
     type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    button:"Go somewhere",
-    className: "inactive"
+    button: "Go somewhere",
   },
   {
-    image: sofa,
-    title: "card title 2",
+    image: Sofabed,
+    title: "Card title 3",
     type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    button:"Go somewhere",
-    className: "inactive"
-  },
+    button: "Go somewhere",
+  },  
   {
-    image: sofa,
-    title: "card title 2",
+    image: Sofabed,
+    title: "Card title 3",
     type: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    button:"Go somewhere",
-    className: "inactive"
+    button: "Go somewhere",
   },
-]
+];
 
 const HomepageContainer = styled.div`
   width: 100%;
@@ -428,6 +427,20 @@ const Product = styled.div`
 `;
 
 function Homepage() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? carouselItems.length - 1 : prevIndex - 1));
+    console.log('this is it')
+  };
+  
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex === carouselItems.length - 1 ? 0 : prevIndex + 1));
+    console.log('this is that')
+  };
+  
+
+
   return (
     <HomepageContainer>
       <Topbar />
@@ -556,63 +569,27 @@ function Homepage() {
         </div>
       </Shop>
       <Product>
-        <div className="titleHead">
-          Browse by your categories
-        </div>
-        <div id="carouselExampleControls" className="carousel slide" data-bs-ride= "carousel">
+        <div className="titleHead">Browse by your categories</div>
+        <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
-
-            {carousel.map((caro, index)=>(
-            <div className="carousel-item active {inactive}"  key={index}>
-              <div class="card">
-                <img src={caro.image} class="d-block w-100" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">{caro.title}</h5>
-                  <p class="card-text">{caro.type}</p>
-                  <a href="#" class="btn btn-primary">{caro.button}</a>
+            {carouselItems.map((item, index) => (
+              <div className={`carousel-item ${index === activeIndex ? 'active' : ''}`} key={index}>
+                <div className="card">
+                  <img src={item.image} className="d-block w-100" alt={item.title} />
+                  <div className="card-body">
+                    <h5 className="card-title">{item.title}</h5>
+                    <p className="card-text">{item.type}</p>
+                    <a href="#" className="btn btn-primary">{item.button}</a>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
-            {/* <div className="carousel-item">
-              <div class="card">
-                <img src={armChair} class="d-block w-100" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title 2</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div> */}
-            {/* <div className="carousel-item">
-              <div class="card">
-                <img src={Sofabed} class="d-block w-100" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title 2</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div> */}
-            {/* <div className="carousel-item">
-              <div class="card">
-                <img src={Sofabed} class="d-block w-100" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title 2</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div> */}
           </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <button className="carousel-control-prev button1" type="button" onClick={handlePrev}>
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Previous</span>
           </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <button className="carousel-control-next button2" type="button" onClick={handleNext}>
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Next</span>
           </button>
