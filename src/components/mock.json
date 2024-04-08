@@ -1,0 +1,29 @@
+[
+      {
+        "image": "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/X/179478_1659095322.jpg",
+        "title": "Card title 1",
+        "type": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "button": "Go somewhere"
+      },
+      {
+        "image": "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/L/S/179478_1659095333.jpg",
+        "title": "Card title 2",
+        "type": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "button": "Go somewhere"
+      },
+      {
+        "image": "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/Y/W/179478_1659095344.jpg",
+        "title": "Card title 3",
+        "type": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "button": "Go somewhere"
+      },  
+      {
+        "image": "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/D/X/179478_1659095322.jpg",
+        "title": "Card title 3",
+        "type": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "button": "Go somewhere"
+      }
+    ]
+
+
+    

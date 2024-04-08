@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
+import {Slider} from '../components/slider'
+import slides from "../components/mock.json"
 import styled from 'styled-components';
 import Topbar from '../components/topbar';
 import Navbar from '../components/navbar';
-
 import heroImg from '../assets/heroImg.png';
 import arrow from '../assets/arrow.svg';
 import chair from '../assets/chair.svg';
@@ -431,12 +432,12 @@ function Homepage() {
   //   setActiveIndex((prevIndex) => (prevIndex === 0 ? carouselItems.length - 1 : prevIndex - 1));
   //   console.log('this is it')
   // };
-  
+
   // const handleNext = () => {
   //   setActiveIndex((prevIndex) => (prevIndex === carouselItems.length - 1 ? 0 : prevIndex + 1));
   //   console.log('this is that')
   // };
-  
+
 
 
   return (
@@ -568,6 +569,10 @@ function Homepage() {
       </Shop>
       <Product>
         <div className="titleHead">Browse by your categories</div>
+
+            <Slider slides={slides}/>
+
+
         {/* <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
             {carouselItems.map((item, index) => (
